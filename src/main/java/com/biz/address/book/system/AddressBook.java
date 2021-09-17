@@ -51,6 +51,10 @@ public class AddressBook {
         System.out.println("Enter the Phone Number:");
         Long phoneNumber = scan.nextLong();
         contacts.setPhoneNumber(phoneNumber);
+
+        System.out.println("Enter the Email");
+        String email = scan.next();
+        contacts.setEmail(email);
         list.add(contacts);
 
     }
