@@ -14,7 +14,7 @@ public class AddressBook {
         boolean status = true;
         do {
             System.out.println("Choose Operation you want to do");
-            System.out.println("1. Add");
+            System.out.println("1. Add\t2.Edit");
             switch (scan.nextInt()) {
                 case 1:
                     add();
