@@ -6,8 +6,8 @@ public class Contacts {
     private String address;
     private String city;
     private String state;
-    private String zip;
-    private String phoneNumber;
+    private Long zip;
+    private Long phoneNumber;
     private String email;
 
     @Override
@@ -65,19 +65,19 @@ public class Contacts {
         this.state = state;
     }
 
-    public String getZip() {
+    public Long getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(Long zip) {
         this.zip = zip;
     }
 
-    public String getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
