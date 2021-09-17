@@ -14,13 +14,17 @@ public class AddressBook {
         boolean status = true;
         do {
             System.out.println("Choose Operation you want to do");
-            System.out.println("1. Add\t2.Edit");
+            System.out.println("1. Add\t2.Edit\t3.Delete");
             switch (scan.nextInt()) {
                 case 1:
                     add();
                     break;
                 case 2:
                     edit();
+                    break;
+                case 3:
+                    delete();
+                    break;
             }
         } while (status);
     }
@@ -101,6 +105,19 @@ public class AddressBook {
                         contacts.setEmail(scan.next());
                 }
 
+            }
+        }
+    }
+    public void delete() {
+        System.out.println("Enter your First name:");
+        String firstName = scan.next();
+
+        Iterator<Contacts> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            Contacts contacts = iterator.next();
+
+            if (firstName.equals(contacts.getFirstName())) {
+                list.remove(contacts);
             }
         }
     }
