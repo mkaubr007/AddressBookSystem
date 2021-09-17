@@ -19,6 +19,8 @@ public class AddressBook {
                 case 1:
                     add();
                     break;
+                case 2:
+                    edit();
             }
         } while (status);
     }
@@ -101,6 +103,5 @@ public class AddressBook {
 
             }
         }
-
     }
 }
