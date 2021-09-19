@@ -10,6 +10,17 @@ public class Contacts {
     private Long phoneNumber;
     private String email;
 
+    public Contacts() {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Contacts{" +
@@ -89,7 +100,4 @@ public class Contacts {
         this.email = email;
     }
 
-    protected void remove(Contacts contacts) {
-
-    }
 }
