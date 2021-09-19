@@ -4,7 +4,6 @@ import java.util.*;
 
 public class AddressBook {
     public List<Contacts> list = new ArrayList<>();
-    public Set<Contacts> set = new HashSet<>();
     Scanner scan = new Scanner(System.in);
 
     public void operation() {
