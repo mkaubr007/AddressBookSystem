@@ -1,15 +1,15 @@
 package com.biz.address.book.system;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
     Scanner scan = new Scanner(System.in);
-    ArrayList<Contacts> list = new ArrayList<>();
-    public ArrayList<Contacts> arrayRead;
+    private final List<Contacts> list = new ArrayList<>();
 
     public void operation() {
-        list = arrayRead;
         boolean status = true;
         do {
             System.out.println("Choose Operation you want to do");
@@ -56,6 +56,14 @@ public class AddressBook {
         String email = scan.next();
         contacts.setEmail(email);
         list.add(contacts);
+        print();
 
+    }
+
+    public void print() {
+        Iterator<Contacts> it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
     }
 }
