@@ -34,6 +34,8 @@ public class AddressBook {
                     sortCity();
                 case 5:
                     sortState();
+                case 6:
+                    print();
                 default:
                     status =false;
             }
