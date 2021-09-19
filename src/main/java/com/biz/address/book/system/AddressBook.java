@@ -9,6 +9,15 @@ public class AddressBook {
     Scanner scan = new Scanner(System.in);
     public List<Contacts> list = new ArrayList<>();
     public void operation() {
+        System.out.println("Enter Number of contact you want to add");
+        int count = scan.nextInt();
+        AddressBook addressBook = new AddressBook();
+        int contactCount=1;
+        while(contactCount<=count) {
+
+            addressBook.add();
+            contactCount++;
+        }
         boolean status = true;
         do {
             System.out.println("Choose Operation you want to do");
