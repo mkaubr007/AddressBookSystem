@@ -19,7 +19,7 @@ public class AddressBook {
         do {
 
             System.out.println("Choose Operation you want to do");
-            System.out.println("1. Add\t2.Edit\t3.Delete\t4.sortCity\5.sortState");
+            System.out.println("1. Add\t2.Edit\t3.Delete\t4.sortCity\t5.sortState");
             switch (scan.nextInt()) {
                 case 1:
                     add();
