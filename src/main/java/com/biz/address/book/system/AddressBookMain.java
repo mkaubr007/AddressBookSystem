@@ -11,8 +11,8 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book System");
         Map<String,AddressBook> map=new HashMap<>();
         System.out.println("Enter Number of address book you want to add");
-        int count = scan.nextInt();
-        int i=0;
+        Integer count = scan.nextInt();
+        Integer i=0;
         while (i<count){
             System.out.println("Enter  book name");
             String bookName =scan.next();
