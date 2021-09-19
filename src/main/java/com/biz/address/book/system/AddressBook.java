@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-    Scanner scan = new Scanner(System.in);
     public List<Contacts> list = new ArrayList<>();
+    Scanner scan = new Scanner(System.in);
+
     public void operation() {
         System.out.println("Enter Number of contact you want to add");
         int count = scan.nextInt();
-        AddressBook addressBook = new AddressBook();
-        int contactCount=1;
-        while(contactCount<=count) {
+        int contactCount = 1;
+        while (contactCount <= count) {
 
-            addressBook.add();
+            this.add();
             contactCount++;
         }
         boolean status = true;
@@ -32,6 +32,8 @@ public class AddressBook {
                 case 3:
                     delete();
                     break;
+                default:
+                    status =false;
             }
         } while (status);
     }
@@ -44,11 +46,11 @@ public class AddressBook {
 
         System.out.println("Enter the Last name:");
         String lastName = scan.next();
-        contacts.setFirstName(lastName);
+        contacts.setLastName(lastName);
 
         System.out.println("Enter the address:");
         String address = scan.next();
-        contacts.setFirstName(address);
+        contacts.setAddress(address);
 
         System.out.println("Enter the City:");
         String city = scan.next();
@@ -56,7 +58,7 @@ public class AddressBook {
 
         System.out.println("Enter the State:");
         String state = scan.next();
-        contacts.setAddress(state);
+        contacts.setState(state);
 
         System.out.println("Enter the Zip:");
         Long zip = scan.nextLong();
@@ -69,14 +71,15 @@ public class AddressBook {
         System.out.println("Enter the Email");
         String email = scan.next();
         contacts.setEmail(email);
-        list.add(contacts);
+        this.list.add(contacts);
         print();
     }
+
     public void edit() {
         System.out.println("Enter your First name:");
         String firstName = scan.next();
 
-        Iterator<Contacts> iterator = list.listIterator();
+        Iterator<Contacts> iterator = this.list.listIterator();
 
         while (iterator.hasNext()) {
             Contacts contacts = iterator.next();
@@ -116,6 +119,7 @@ public class AddressBook {
             }
         }
     }
+
     public void delete() {
         System.out.println("Enter your First name:");
         String firstName = scan.next();
@@ -129,10 +133,17 @@ public class AddressBook {
             }
         }
     }
+
     public void print() {
         Iterator<Contacts> it = list.iterator();
         while (it.hasNext()) {
             System.out.println(it.next());
         }
+    }
+    @Override
+    public String toString() {
+        return "AddressBook{" +
+                "list=" + list +
+                '}';
     }
 }
