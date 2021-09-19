@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 public class AddressBook {
     Scanner scan = new Scanner(System.in);
-    private  List<Contacts> list = new ArrayList<>();
-
+    public List<Contacts> list = new ArrayList<>();
     public void operation() {
         boolean status = true;
         do {
@@ -63,7 +62,6 @@ public class AddressBook {
         contacts.setEmail(email);
         list.add(contacts);
         print();
-
     }
     public void edit() {
         System.out.println("Enter your First name:");
@@ -105,6 +103,7 @@ public class AddressBook {
                         System.out.println("Re-Correct your Email");
                         contacts.setEmail(scan.next());
                 }
+
             }
         }
     }
@@ -121,7 +120,6 @@ public class AddressBook {
             }
         }
     }
-
     public void print() {
         Iterator<Contacts> it = list.iterator();
         while (it.hasNext()) {
