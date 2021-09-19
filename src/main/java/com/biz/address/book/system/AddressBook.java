@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class AddressBook {
     Scanner scan = new Scanner(System.in);
-    private final List<Contacts> list = new ArrayList<>();
+    private  List<Contacts> list = new ArrayList<>();
 
     public void operation() {
         boolean status = true;
