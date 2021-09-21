@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 
 public class Sort {
+    Contacts contacts=new Contacts();
         static Comparator<Contacts> compareCity = new Comparator<>() {
             public int compare(Contacts one, Contacts two) {
                 return one.getCity().compareTo(two.getCity());
@@ -20,5 +21,9 @@ public class Sort {
             return one.getFirstName().compareTo(two.getFirstName());
         }
     };
-
+    static Comparator<Contacts> compareZip = new Comparator<>() {
+        public int compare(Contacts one, Contacts two) {
+            return one.getZip().compareTo(two.getZip());
+        }
+    };
 }

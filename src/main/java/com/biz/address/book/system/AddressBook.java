@@ -19,7 +19,7 @@ public class AddressBook {
         do {
 
             System.out.println("Choose Operation you want to do");
-            System.out.println("1. Add\t2.Edit\t3.Delete\t4.sortCity\t5.sortState\t6.show\t7.Count\t8.SortByName");
+            System.out.println("1. Add\t2.Edit\t3.Delete\t4.sortCity\t5.sortState\t6.show\t7.Count\t8.SortByName\t9.SortByZip");
 
             switch (scan.nextInt()) {
                 case 1:
@@ -41,6 +41,8 @@ public class AddressBook {
                     countList();
                 case 8:
                     sortByFirstName();
+                case 9:
+                    sortByZip();
                 default:
                     status =false;
             }
@@ -153,6 +155,7 @@ public class AddressBook {
         Long total=list.stream().count();
         System.out.println(total);
     }
+    public void sortByZip() {Collections.sort(list,Sort.compareZip);}
     public  void sortByFirstName(){Collections.sort(list,Sort.compareFirstName);}
     public void sortCity() {
         Collections.sort(list,Sort.compareCity);
