@@ -1,10 +1,20 @@
 package com.biz.address.book.system;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class AddressBook {
-    public List<Contacts> list = new ArrayList<>();
+    List<Contacts> list = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
+    String pathName="D:\\AddressBookSystem\\src\\main\\resources\\temp.txt";
+
+    public AddressBook(List<Contacts> contactsList) {
+    }
+
+    public AddressBook() {
+    }
 
     public void operation() {
         System.out.println("Enter Number of contact you want to add");
@@ -162,6 +172,28 @@ public class AddressBook {
     }
     public void sortState() {
         Collections.sort(list,Sort.compareState);
+    }
+
+    public void writeFileData(){
+        StringBuffer addressDataBuffer=new StringBuffer();
+        list.forEach(data->{
+            String dataString=data.toString().concat("\n");
+            addressDataBuffer.append(dataString);
+        });
+        try {
+            Files.write(Paths.get(pathName),addressDataBuffer.toString().getBytes());
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    public long readFile(){
+        long entries=0;
+        try{
+            entries=Files.lines(Paths.get(pathName)).count();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+        return entries;
     }
     @Override
     public String toString() {
