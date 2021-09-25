@@ -11,6 +11,7 @@ public class AddressBook {
     String pathName="D:\\AddressBookSystem\\src\\main\\resources\\temp.txt";
 
     public AddressBook(List<Contacts> contactsList) {
+        list.addAll(contactsList);
     }
 
     public AddressBook() {
@@ -177,6 +178,7 @@ public class AddressBook {
     public void writeFileData(){
         StringBuffer addressDataBuffer=new StringBuffer();
         list.forEach(data->{
+            System.out.println(data);
             String dataString=data.toString().concat("\n");
             addressDataBuffer.append(dataString);
         });
