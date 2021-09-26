@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBookTest {
-    private static final String PATH_TXT="D:\\AddressBookSystem\\src\\main\\resources\\temp.txt";
+    private static final String PATH_TXT="./src/main/resources/temp.txt";
     @Test
     public void givenContactsEntries_WhenWrittenToFileShouldMatchAddressEntries() {
         List<Contacts> contactsList = new ArrayList<>();
