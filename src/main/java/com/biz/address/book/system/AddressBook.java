@@ -8,7 +8,6 @@ import java.util.*;
 public class AddressBook {
     List<Contacts> list = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
-    String pathName="D:\\AddressBookSystem\\src\\main\\resources\\temp.txt";
 
     public AddressBook(List<Contacts> contactsList) {
         list.addAll(contactsList);
@@ -175,7 +174,7 @@ public class AddressBook {
         Collections.sort(list,Sort.compareState);
     }
 
-    public void writeFileData(){
+    public void writeFileData(String pathName){
         StringBuffer addressDataBuffer=new StringBuffer();
         list.forEach(data->{
             System.out.println(data);
@@ -188,7 +187,7 @@ public class AddressBook {
             System.out.println(e);
         }
     }
-    public long readFile(){
+    public long readFile(String pathName){
         long entries=0;
         try{
             entries=Files.lines(Paths.get(pathName)).count();
