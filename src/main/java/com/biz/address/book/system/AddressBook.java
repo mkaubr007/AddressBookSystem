@@ -267,7 +267,7 @@ public class AddressBook {
             System.out.println(e);
         }
     }
-    public List<Contacts> retrieveDataByValue() throws SQLException {
+    public List<Contacts> retrieveDataBetweenRange() throws SQLException {
         ResultSet resultSet = null;
         List<Contacts> employeeInfoList = new ArrayList<>();
         try (Connection connection = getConnection()) {
