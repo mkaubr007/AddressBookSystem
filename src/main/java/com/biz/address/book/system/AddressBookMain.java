@@ -14,7 +14,7 @@ public class AddressBookMain {
         AddressBookMain addressBookMain=new AddressBookMain();
         addressBookMain.retrieveData();
         addressBookMain.updateContacts();
-        addressBookMain.retrieveDataByValue();
+        addressBookMain.retrieveDataBetweenRange();
         System.out.println("Welcome to Address Book System");
         Map<String, AddressBook> map = new HashMap<>();
         System.out.println("Enter Number of address book you want to add");
@@ -36,8 +36,8 @@ public class AddressBookMain {
     private void updateContacts(){
         addressBook.updateContacts(8002695700l,824123l);
     }
-    private void retrieveDataByValue()throws SQLException {
-        List<Contacts> addressBookList = addressBook.retrieveDataByValue();
+    private void retrieveDataBetweenRange()throws SQLException {
+        List<Contacts> addressBookList = addressBook.retrieveDataBetweenRange();
         System.out.println(addressBookList);
     }
 }
