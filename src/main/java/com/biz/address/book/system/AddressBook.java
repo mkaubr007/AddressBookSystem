@@ -263,7 +263,7 @@ public class AddressBook {
             String query = "update address_book set zip=" + zip + " where phoneNumber=" + phoneNumber + "";
             int result = statement.executeUpdate(query);
             if (result == 1)
-                System.out.println("phoneNumber updated");
+                System.out.println("zip updated");
         } catch (SQLException e) {
             System.out.println(e);
         }
