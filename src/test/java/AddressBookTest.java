@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBookTest {
-    private static final String PATH_TXT="./src/main/resources/temp.txt";
+    private static final String PATH_TXT="./src/main/resources.txt";
     private static final String PATH_CSV="./src/main/resources/temp.csv";
     private static final String PATH_JSON="./src/main/resources/temp.json";
     @Test
@@ -49,7 +49,7 @@ public class AddressBookTest {
         contactsList.add(new Contacts("Manish", "Kumar", "Aurangabad", "Aurangabad", "Bihar", 42552l, 8002696700l, "mkaubr007@gmail.com"));
         contactsList.add(new Contacts("Rohit", "Kumar", "Patna", "Patna", "Bihar", 3434l, 7646778838l, "rohitk01@gmail.com"));
         AddressBook addressBook=new AddressBook(contactsList);
-        addressBook.writeFileData(PATH_JSON);
+        addressBook.writeJsonData(PATH_JSON);
     }
     @Test
     public void givenContactsEntries_WhenReadingTotalJsonFileShouldMatch(){

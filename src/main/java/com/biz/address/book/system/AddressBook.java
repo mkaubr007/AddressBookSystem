@@ -1,8 +1,12 @@
 package com.biz.address.book.system;
 
+import com.google.gson.Gson;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.*;
 import java.util.*;
 
 public class AddressBook {
@@ -187,6 +191,20 @@ public class AddressBook {
             System.out.println(e);
         }
     }
+    public void writeJsonData(String pathName){
+        StringBuffer addressDataBuffer=new StringBuffer();
+        list.forEach(data->{
+            System.out.println(data);
+            Gson gson=new Gson();
+            String l=gson.toJson(list);
+            addressDataBuffer.append(l);
+        });
+        try {
+            Files.write(Paths.get(pathName),addressDataBuffer.toString().getBytes());
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
     public long readFile(String pathName){
         long entries=0;
         try{
@@ -195,6 +213,60 @@ public class AddressBook {
             System.out.println(e);
         }
         return entries;
+    }
+    private Connection getConnection() throws SQLException {
+        String url = "jdbc:mysql://127.0.0.1:3306/address_book_system";
+        String userName = "root";
+        String password = "Mkaubr007@gmail.com";
+        Connection connection = null;
+        try {
+            //1 . load and register the driver
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+
+            connection = DriverManager.getConnection(url, userName, password);
+            System.out.println("Connection established");
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return connection;
+    }
+    public List<Contacts> retrieveData() throws SQLException {
+        ResultSet resultSet = null;
+        List<Contacts> employeeInfoList = new ArrayList<>();
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            String sql = "select * from address_book;";
+            resultSet = statement.executeQuery(sql);
+            int count = 1;
+            while (resultSet.next()) {
+                count++;
+                Contacts contacts = new Contacts();
+                contacts.setFirstName(resultSet.getString("firstName"));
+                contacts.setLastName(resultSet.getString("lastName"));
+                contacts.setAddress(resultSet.getString("address"));
+                contacts.setCity(resultSet.getString("city"));
+                contacts.setState(resultSet.getString("state"));
+                contacts.setZip(resultSet.getLong("zip"));
+                contacts.setPhoneNumber(resultSet.getLong("phoneNumber"));
+                contacts.setEmail(resultSet.getString("email"));
+                employeeInfoList.add(contacts);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return employeeInfoList;
+    }
+    public void updateContacts(long phoneNumber, long zip) {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            String query = "update address_book set zip=" + zip + " where phoneNumber=" + phoneNumber + "";
+            int result = statement.executeUpdate(query);
+            if (result == 1)
+                System.out.println("phoneNumber updated");
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
     @Override
     public String toString() {
