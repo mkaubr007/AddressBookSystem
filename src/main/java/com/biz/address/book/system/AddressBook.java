@@ -272,7 +272,7 @@ public class AddressBook {
         List<Contacts> employeeInfoList = new ArrayList<>();
         try (Connection connection = getConnection()) {
             Statement statement = connection.createStatement();
-            String sql = "select * from address_book where zip=824101";
+            String sql = "select * from address_book where start_date between '2020-08-01' AND '2020-09-30'";
             resultSet = statement.executeQuery(sql);
             int count = 1;
             while (resultSet.next()) {
