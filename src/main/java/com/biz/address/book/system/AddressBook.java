@@ -319,6 +319,23 @@ public class AddressBook {
         }
         return employeeInfoList;
     }
+    public void insertData(Contacts info) {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            String sql = "insert into address_book(firstName,lastName,address,city,state,zip,phoneNumber,email) " +
+                    "values ('" + info.getFirstName() + "','" + info.getLastName() + "'," +
+                    "'" + info.getAddress() + "','" + info.getCity() + "'," +
+                    "'" + info.getState() + "',"+ info.getZip() + "',"+
+                    "'" + info.getPhoneNumber() + "'," + info.getEmail() + "')";
+            int result = statement.executeUpdate(sql);
+            if (result == 1) {
+                System.out.println("insert query");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+    }
     @Override
     public String toString() {
         return "AddressBook{" +

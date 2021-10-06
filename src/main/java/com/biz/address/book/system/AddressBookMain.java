@@ -16,6 +16,7 @@ public class AddressBookMain {
         addressBookMain.updateContacts();
         addressBookMain.retrieveDataBetweenRange();
         addressBookMain.retrieveDataByValue();
+        addressBookMain.insertData();
         System.out.println("Welcome to Address Book System");
         Map<String, AddressBook> map = new HashMap<>();
         System.out.println("Enter Number of address book you want to add");
@@ -44,5 +45,17 @@ public class AddressBookMain {
     private void retrieveDataByValue() throws SQLException {
         List<Contacts> addressBookList = addressBook.retrieveDataByValue();
         System.out.println(addressBookList);
+    }
+    private void insertData() {
+        Contacts info = new Contacts();
+        info.setFirstName("Vikram");
+        info.setLastName("Singh");
+        info.setAddress("Aurangabad");
+        info.setCity("Jaipur");
+        info.setState("Rajasthan");
+        info.setZip(741852l);
+        info.setPhoneNumber(9771680000l);
+        info.setEmail("rajavikramsingh01@gmail.com");
+        addressBook.insertData(info);
     }
 }
